@@ -12,8 +12,6 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 @Entity
 @Table(name = "school")
 @EntityListeners(AuditingEntityListener.class)
@@ -23,11 +21,30 @@ public class SchoolEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")
     private int id;
- 
 
-    @Column(name="SCHOOL_NAME",nullable = false, updatable = false)
-    
-    private String schoolName;
+    @Column(name="Name",nullable = false, updatable = false)
+    private String name;
+
+	@Column(name = "Address", nullable = false)
+	private String address;
+
+	@Column(name = "Name_of_Principal")
+	private String principalName;
+
+	@Column(name = "Contact")
+	private String contactNo;
+
+	@Column(name = "Medium")
+	private String medium;
+
+	@Column(name = "Syllabus")
+	private String syllabus;
+
+	@Column(name = "Classes")
+	private String classes;
+
+	@Column(name = "Timing")
+	private String timing;
 
     public int getId() {
 		return id;
@@ -37,25 +54,20 @@ public class SchoolEntity implements Serializable {
 		this.id = id;
 	}
 
-	public String getSchoolName() {
-		return schoolName;
+	public String getName() {
+		return name;
 	}
 
-	public void setSchoolName(String schoolName) {
-		this.schoolName = schoolName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getSchoolAddress() {
-		return schoolAddress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setSchoolAddress(String schoolAddress) {
-		this.schoolAddress = schoolAddress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	@Column(name = "SCHOOL_ADDRESS", nullable = false)
-    
-    private String schoolAddress;
-
-    // 
 }
